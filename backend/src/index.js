@@ -7,7 +7,7 @@ import { connectDB } from "./lib/db.js";
 
 import fs from "fs";
 import path from "path";
-
+const app = express();
 const PORT = process.env.PORT;
 const FRONTEND_URL = process.env.FRONTEND_URL;
 
