@@ -4,7 +4,7 @@ import "dotenv/config";
 import {clerkMiddleware} from "@clerk/express";
 import User from "./models/user.model.js";
 import { connectDB } from "./lib/db.js";
-import clerkWebhook from "./routes/webhook.route.js";
+import clerkWebhook from "./webhooks/clerk.webhooks.js";
 
 import fs from "fs";
 import path from "path";
