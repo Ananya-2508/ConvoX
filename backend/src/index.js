@@ -4,7 +4,10 @@ import "dotenv/config";
 import {clerkMiddleware} from "@clerk/express";
 import User from "./models/user.model.js";
 import { connectDB } from "./lib/db.js";
+
 import clerkWebhook from "./webhooks/clerk.webhooks.js";
+import authRoutes from "./routes/auth.route.js";
+import messageRoutes from "./routes/message.route.js";
 
 import fs from "fs";
 import path from "path";
@@ -22,6 +25,9 @@ app.use(clerkMiddleware());
 
 app.get("/health",(req,res) =>{
     res.status(200).json({ok:true});});
+
+app.use("/api/auth", authRoutes);
+app.use("/api/messages", messageRoutes);
 
 if (fs.existsSync(publicDir)) {
   app.use(express.static(publicDir));
