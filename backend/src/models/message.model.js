@@ -16,18 +16,18 @@ const messageSchema = new mongoose.Schema(
         },
         test:
         {
-            type:String,
+            type: String,
         },
         image:
         {
-            type:String, 
+            type: String,
         },
         video:
         {
-            type:String,
+            type: String,
         },
     },
-    { timestamps:true },
+    { timestamps: true },
 );
 
 const Message = mongoose.model("message", messageSchema);

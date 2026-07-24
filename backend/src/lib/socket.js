@@ -14,6 +14,7 @@ function getReceiverSocketId(userId) {
 }
 
 // online users map = { userId: socketId }
+// alternatively,
 const userSocketMap = {};
 
 io.on("connection", (socket) => {
