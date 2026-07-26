@@ -13,13 +13,7 @@ import { Toaster } from "react-hot-toast";
 function App() {
   const { isSignedIn, isLoaded } = useAuth();
 
-  // option 1
-  // const { checkAuth, isCheckingAuth, clearAuth } = useAuthStore();
-
-  // option 2 - better for performance
-  const clearAuth = useAuthStore((state) => state.clearAuth);
-  const checkAuth = useAuthStore((state) => state.checkAuth);
-  const isCheckingAuth = useAuthStore((state) => state.isCheckingAuth);
+  const { checkAuth, isCheckingAuth, clearAuth } = useAuthStore();
 
   useEffect(() => {
     if (!isLoaded) return;
