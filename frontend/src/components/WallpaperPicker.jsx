@@ -1,7 +1,7 @@
 import { Button, Modal, useOverlayState } from "@heroui/react";
 import { Check, ImageIcon } from "lucide-react";
 import { useTransition } from "react";
-import { useWallpaper } from "../context/wallpaper";
+import { useWallpaper } from "./context/wallpaper";
 import { WALLPAPER_SECTIONS, WALLPAPERS } from "../data/wallpapers";
 
 function WallpaperThumb({ wallpaper, selected, onSelect }) {
