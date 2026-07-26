@@ -7,12 +7,10 @@ import { useAuth } from "@clerk/react";
 import PageLoader from "./components/PageLoader";
 import { useAuthStore } from "./store/useAuthStore";
 import { useEffect } from "react";
-
 import { Toaster } from "react-hot-toast";
 
 function App() {
   const { isSignedIn, isLoaded } = useAuth();
-
   const { checkAuth, isCheckingAuth, clearAuth } = useAuthStore();
 
   useEffect(() => {
