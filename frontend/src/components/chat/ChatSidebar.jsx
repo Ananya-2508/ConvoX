@@ -40,6 +40,7 @@ function ChatSidebar() {
   const setActiveConversationId = useChatStore((state) => state.setActiveConversationId);
 
   const onlineUsers = useAuthStore((state) => state.onlineUsers);
+  console.log("onlineUsers:", onlineUsers);
 
   const { activeConversationId, isLargeScreen } = useSelectedConversation();
 
