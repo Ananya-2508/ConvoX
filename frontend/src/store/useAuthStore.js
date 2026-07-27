@@ -34,24 +34,13 @@ export const useAuthStore = create((set, get) => ({
   connectSocket: (user) => {
   if (!user || get().socket?.connected) return;
 
-  const socket = io(BASE_URL, {
-    query: { userId: user._id },
-  });
-
-  socket.on("connect", () => {
-    console.log("✅ Socket connected:", socket.id);
-  });
-
-  socket.on("connect_error", (err) => {
-    console.error("❌ Socket connect error:", err);
-  });
-
-  socket.on("getOnlineUsers", (userIds) => {
-    console.log("👥 Online users:", userIds);
-    set({ onlineUsers: userIds });
-  });
+  const socket = io(BASE_URL, { query: { userId: user._id } });
 
   set({ socket });
+
+  socket.on("getOnlineUsers", (userIds) => {
+    set({ onlineUsers: userIds });
+  });
 },
 
   disconnectSocket: () => {
