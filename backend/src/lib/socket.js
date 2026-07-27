@@ -20,14 +20,17 @@ const userSocketMap = {};
 io.on("connection", (socket) => {
   const userId = socket.handshake.query.userId;
 
+  console.log("✅ Connected:", userId, socket.id);
+
   if (userId) userSocketMap[userId] = socket.id;
 
-  // io.emit() sends event to everyone - broadcast
   io.emit("getOnlineUsers", Object.keys(userSocketMap));
 
-  // socket.on is used to listen for events
-  socket.on("disconnect", () => {
+  socket.on("disconnect", (reason) => {
+    console.log("❌ Disconnected:", userId, reason);
+
     if (userId) delete userSocketMap[userId];
+
     io.emit("getOnlineUsers", Object.keys(userSocketMap));
   });
 });
