@@ -1,4 +1,4 @@
-import { WallpaperProvider } from "./components/context/wallpaperContext";
+import { WallpaperContext } from "./components/context/WallpaperContext";
 import { ThemeProvider } from "./components/context/ThemeContext";
 import { Navigate, Route, Routes } from "react-router";
 import ChatPage from "./pages/ChatPage";
